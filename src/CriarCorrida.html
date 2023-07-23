@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <title>PUCarona</title>
+    <link rel="shortcut icon" href="images/logo-sem-fundo.png" type="image/x-icon">
+
+    <!-- funcoes de pegar o CEP -->
+
+    <script>
+    
+        function limpa_formulário_cep1() {
+                //Limpa valores do formulário de cep.
+                document.getElementById('rua1').value=("");
+                document.getElementById('bairro1').value=("");
+                document.getElementById('cidade1').value=("");
+                document.getElementById('uf1').value=("");
+                
+        }
+    
+        function meu_callback1(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('rua1').value=(conteudo.logradouro);
+                document.getElementById('bairro1').value=(conteudo.bairro);
+                document.getElementById('cidade1').value=(conteudo.localidade);
+                document.getElementById('uf1').value=(conteudo.uf);
+                
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep1();
+                alert("CEP não encontrado.");
+            }
+        }
+            
+        function pesquisacep1(valor) {
+    
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+    
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+    
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+    
+                //Valida o formato do CEP.
+                if(validacep.test(cep)) {
+    
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua1').value="...";
+                    document.getElementById('bairro1').value="...";
+                    document.getElementById('cidade1').value="...";
+                    document.getElementById('uf1').value="...";
+                    
+    
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+    
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback1';
+    
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+    
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep1();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep1();
+            }
+        };
+
+
+        function limpa_formulário_cep2() {
+                //Limpa valores do formulário de cep.
+                document.getElementById('rua2').value=("");
+                document.getElementById('bairro2').value=("");
+                document.getElementById('cidade2').value=("");
+                document.getElementById('uf2').value=("");
+                
+        }
+    
+        function meu_callback2(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('rua2').value=(conteudo.logradouro);
+                document.getElementById('bairro2').value=(conteudo.bairro);
+                document.getElementById('cidade2').value=(conteudo.localidade);
+                document.getElementById('uf2').value=(conteudo.uf);
+                
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep2();
+                alert("CEP não encontrado.");
+            }
+        }
+            
+        function pesquisacep2(valor) {
+    
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+    
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+    
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+    
+                //Valida o formato do CEP.
+                if(validacep.test(cep)) {
+    
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua2').value="...";
+                    document.getElementById('bairro2').value="...";
+                    document.getElementById('cidade2').value="...";
+                    document.getElementById('uf2').value="...";
+                    
+    
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+    
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback2';
+    
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+    
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep2();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep2();
+            }
+        };
+                
+    
+        </script>
+
+
+
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="#"><img src="images/logo-sem-fundo.png" alt="logo-pucarona"></a>
+        </div>
+        <nav class="navbar navbar-expand-lg" style="padding-top: 15px;">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav" s>
+                    <ul class="menu" style="padding-left: 0px;">
+                        <li style="text-align: start;">
+                            <a href="CriarCorrida.html">Criar Corrida</a>
+                        </li>
+                        <li>
+                            <a href="Corridas-Disponiveis.html">Corridas Disponíveis</a>
+                        </li>
+                        <li>
+                            <a href="perfil.html">Editar Perfil</a>
+                        </li>
+                        <li>
+                            <a href="Historico.html">Histórico</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+    </header>
+    <main>
+        <section class="container-md">
+            <br>
+            <h3 class="row d-flex justify-content-center mt-5 mx-auto  " style="padding: 10px 0px;">Criar Corrida</h3>
+
+            <div class="container">
+                <div id="corrida-Form" class="row justify-content-center align-items-center">
+                    <div id="CR-column" class="col-md-6">
+                        <div class="box">
+
+                            <br class="float">
+                            <br class="form" action="">
+                            <div class="form-group">
+                               <div class="input-group"> 
+                 
+                  <!--<input type="text" class="form-control" name="saidaCorrida" 
+ id="saidaCorrida" placeholder="Saida">-->
+ 
+ 
+ <form method="get" action=".">
+    <label>Saida:
+    <input name="cep" type="text" id="cep1" class="form-control" value=""  size="10" maxlength="9" placeholder="Cep"
+           onblur="pesquisacep1(this.value);" /></label><br />
+    
+    <input name="rua" class="form-control" placeholder="Rua" type="text" id="rua1" size="50" /></label>
+    
+    <input name="bairro" class="form-control" placeholder="Bairro" type="text" id="bairro1" size="10" /></label>
+    
+    <input name="cidade" class="form-control" placeholder="Cidade" type="text" id="cidade1" size="10" /></label>
+    
+    <input name="uf" type="text" class="form-control" placeholder="Uf" id="uf1" size="10" /></label>
+    
+    <input name="complemento" class="form-control" placeholder="Número" type="text" id="complemento1" size="10" /></label>
+  </form>  
+
+                </div>
+                              <br>
+                            </div>
+                          <div class="form-group">
+                               <div class="input-group">
+
+                                <form method="get" action=".">
+                                    <label>Destino:
+                                    <input name="cep" type="text" id="cep2" class="form-control" value=""  size="10" maxlength="9" placeholder="Cep"
+                                           onblur="pesquisacep2(this.value);" /></label><br />
+                                    
+                                    <input name="rua" class="form-control" placeholder="Rua" type="text" id="rua2" size="50" /></label>
+                                    
+                                    <input name="bairro" class="form-control" placeholder="Bairro" type="text" id="bairro2" size="10" /></label>
+                                    
+                                    <input name="cidade" class="form-control" placeholder="Cidade" type="text" id="cidade2" size="10" /></label>
+                                    
+                                    <input name="uf" type="text" class="form-control" placeholder="Uf" id="uf2" size="10" /></label>
+                                    
+                                    <input name="complemento" class="form-control" placeholder="Número" type="text" id="complemento2" size="10" /></label>
+                                  </form> 
+
+            
+        
+        </div>
+                            </div>
+                          <br>
+                          
+                            
+
+                          <div class="form-floating mt-1">
+              <select class="form-select" id="tipoCorrida" aria-label="Floating label select example">
+                
+                <option>Veiculo Proprio</option>
+                <option >Corrida de Aplicativo</option>
+              </select>
+              <label for="floatingSelect">Tipo De Corrida</label>
+            </div>
+                           <br>
+                          
+                          
+                            <div class="form-group mb-3">
+                                <div class="input-group">
+                  <div class="input-group-text">R$</div>
+                  <input type="number" name="Valor" id="valor" class="form-control" placeholder="valor">
+                </div>
+                            </div>
+                            <div class="form-group mb-4 d-grid gap-2 col-6 mx-auto" >
+                                <a href="Corridas-Disponiveis.html"  id="btn_SalvarCorrida" class=" d-grid gap-2 col-6 mx-auto text-center">
+                                <input type="submit" id="btn_SalvarCorrida" name="submit" class="btn btn-dark btn-md mt-3" 
+                                    value="Criar Corrida " >
+                                </a>    
+                            </div>
+                            
+                            <br>
+                            <br>
+                            <br>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="link">
+            <h1>Links</h1>
+            <nav>
+                <ul style="padding-left: 0;">
+                    <li><a href="#">Ajuda</a></li>
+                    <li><a href="#">Aviso Legal</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="contatos">
+            <h1>Contatos</h1>
+            <ul style="padding-left: 0;">
+                <li><a href="mailto:pucarona@pucminas.br">pucarona@pucminas.br</a></li>
+                <li><a href="#">0800 4444 44</a></li>
+            </ul>
+
+        </div>
+    </footer>
+
+    <script src="CriarCorrida.js"></script>
+
+     
+</body>
+
+</html>

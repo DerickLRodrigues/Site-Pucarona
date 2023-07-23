@@ -1,0 +1,394 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    --azul-claro: #B1E4E6;
+    --azul-escuro: #283A64;
+    --azul-medio: #739DB1;
+    --azul-destaque: #1BA7E9;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+li {
+    list-style: none;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    background-color: var(--azul-claro);
+    padding: 0px 80px;
+    border-bottom: 2px var(--azul-escuro) solid;
+}
+
+.logo img {
+    max-width:110px;
+    max-height:110px;
+    width: auto;
+    height: auto;
+}
+
+header nav {
+    width: 70%;
+    padding: 30px 0px 0px 25px;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.menu a {
+    padding: 7px 10px;
+    font-size: 19px;
+    color: var(--azul-escuro);
+}
+
+.menu a:hover {
+    color: white;
+    background-color: var(--azul-destaque);
+    border-radius: 5px;
+}
+
+.menu li:nth-child(2) {
+    padding: 0px 20px;
+    border-left: 2px var(--azul-escuro) solid;
+    border-right: 2px var(--azul-escuro) solid;
+}
+
+.menu li:nth-child(1) {
+    padding-right: 20px;
+}
+
+.menu li:nth-child(3) {
+    padding: 0px 20px;
+}
+
+.menu li:nth-child(4) {
+    padding: 0px 20px;
+    border-left: 2px var(--azul-escuro) solid;
+}
+
+main {
+    min-height: 80vh;
+    background-color: whitesmoke;
+}
+
+.titulo {
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    padding: 15px; 
+    margin: 0;   
+}
+
+/*Histórico de corridas*/
+.my-Container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.my-Box {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    border: 1px var(--azul-medio) solid;
+    max-width: 400px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.my-Box > p {
+    word-break: break-all;
+    font-size: 23px;
+}
+
+.my-Box > .topo {
+    font-size: 15px;
+    padding-bottom: 15px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.passageiro:after {
+    padding-left: 5px;
+    content: url('images/passageiro.png');
+}
+
+.motorista::after {
+    padding-left: 5px;
+    content: url('images/motorista.png');
+}
+
+.botao {
+    padding: 7px;
+    background-color: var(--azul-escuro);
+    color: white;
+    width: 150px;
+    text-align: center;
+    margin: auto;
+    border-radius: 33px;
+}
+
+.botao:hover {
+    background-color: var(--azul-medio);
+    color: black;
+    cursor: pointer;
+}
+
+/*Histórico de corridas*/
+
+.aceitar {
+    padding: 8px;
+    font-size: 13px;
+    background-color: green;
+    color: white;
+    text-align: center;
+    margin: auto;
+    border-radius: 33px;
+}
+
+.aceitar:hover {
+    background-color: rgb(1, 82, 1);
+}
+
+.negar {
+    padding: 8px;
+    font-size: 13px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    margin: auto;
+    border-radius: 33px;
+}
+
+.negar:hover {
+    background-color: rgb(223, 0, 0);
+}
+
+.local-partida {
+    min-width: 300px;
+    color: rgb(94, 94, 94);
+}
+
+.local-destino {
+    min-width: 300px;
+    color: rgb(94, 94, 94);
+}
+
+.local-partida::before {
+    content: url(images/partida.png);
+    padding-right: 5px;
+}
+
+.local-destino::before {
+    content: url(images/chegada.png);
+    padding-right: 5px;
+}
+
+.modal-body{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.campo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.campo > p {
+    color: rgb(94, 94, 94);
+    
+}
+
+.campo > h5 {
+    font-weight: bold;
+}
+
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px 80px;
+    background-color: var(--azul-claro);
+    border-top: 2px var(--azul-escuro) solid;
+}
+
+footer h1 {
+    font-size: 24px;
+}
+
+footer li {
+    padding-top: 10px;
+    color: var(--azul-escuro);
+}
+
+footer li:hover {
+    font-weight: bold;
+}
+
+
+button {
+    padding: 0.6rem 1.2rem;
+    background-color: #888;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    opacity: 0.9;
+    font-size: 1rem;
+}
+
+#fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+  }
+  
+  #modal, #modalWpp {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 90%;
+    background-color: #fff;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    z-index: 10;
+  }
+  
+  #fade,
+  #modal,
+  #modalWpp {
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .modal-body p {
+    margin-bottom: 1rem;
+  }
+  
+  #modal.hide,
+  #fade.hide,
+  #modalWpp.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  #modal.hide {
+    top: 0;
+  }
+
+  #modalWpp.hide {
+    top: 0;
+  }
+
+.botao-whatsapp {
+    background-color: green;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 230px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.botao-whatsapp p {
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0;
+}
+
+.img-whatsapp {
+    width: 25px;
+    height: 25px;
+}
+
+@media (max-width: 950px) 
+{
+    header {
+        padding: 0px;
+        justify-content: space-around;
+    }
+
+    .menu {
+        justify-content: start;
+    } 
+
+    .menu li:nth-child(2) {
+        padding: 0px;
+        margin: 2px 0px;
+        border: 1px var(--azul-escuro) solid;
+        border-radius: 5px;
+        text-align: center;
+    }
+    
+    .menu li:nth-child(1) {
+        padding: 0px;
+        margin: 2px 0px;
+        border: 1px var(--azul-escuro) solid;
+        border-radius: 5px;
+        text-align: center;
+    }
+    
+    .menu li:nth-child(3) {
+        padding: 0px;
+        margin: 2px 0px;
+        border: 1px var(--azul-escuro) solid;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .menu li:nth-child(4) {
+        padding: 0px;
+        margin: 2px 0px;
+        border: 1px var(--azul-escuro) solid;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .menu a {
+        font-size: 15px;
+    }
+
+}
